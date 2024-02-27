@@ -16,7 +16,7 @@ namespace Concurrency
             //WorkerInterfaceMainFunction.WorkerInterfaceMainFunc();
 
             //PromiseMainFunction.PromiseMainFunc();
-            //BlockBasedIOMainFunction.BlockBasedIOMainFunc();
+            BlockBasedIOMainFunction.BlockBasedIOMainFunc();
             //SendLargeFileFunction.SendLargeFile();
 
             //FuncMain();
