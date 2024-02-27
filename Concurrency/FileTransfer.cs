@@ -5,7 +5,7 @@ using System.Net.Http.Json;
 
 namespace Concurrency
 {
-//    Compress the file to use minimal network bandwidth.
+//Compress the file to use minimal network bandwidth.
 //Have an asynchronous setup to transfer chunks of the file.
 //On the receiving end, devise a merge algorithm to stitch all chunks.
 //In case a chunk fails, we perform a retry strategy - depending on the HttpStatusCode from receiver's end.
@@ -29,6 +29,11 @@ namespace Concurrency
             int destinationPort = portInput;
 
             await SendFileAsync(filePath, destinationIpAddress, destinationPort);
+            Task t = Task.Run(() => 
+            {
+                SendFileAsync(filePath, destinationIpAddress, destinationPort);
+            });
+            Task.WaitAll(t);
 
             Console.WriteLine("File transfer completed.");
         }
